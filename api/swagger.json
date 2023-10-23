@@ -1,0 +1,42 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/docs/v1/status/": {
+            "get": {
+                "description": "Get the status of the API",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get the status",
+                "operationId": "Status",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/status.Response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "status.Response": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

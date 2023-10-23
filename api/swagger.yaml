@@ -1,0 +1,26 @@
+definitions:
+  status.Response:
+    properties:
+      code:
+        type: integer
+      data:
+        type: string
+      message:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /docs/v1/status/:
+    get:
+      description: Get the status of the API
+      operationId: Status
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/status.Response'
+      summary: Get the status
+swagger: "2.0"
