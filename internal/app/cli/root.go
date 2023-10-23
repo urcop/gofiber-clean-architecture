@@ -2,7 +2,7 @@ package cli
 
 import (
 	"github.com/spf13/cobra"
-	"log"
+	"github.com/urcop/go-fiber-template/pkg/logger"
 )
 
 // ExecuteRootCmd prepares all CLI commands
@@ -12,6 +12,6 @@ func ExecuteRootCmd() {
 	c.AddCommand(NewServeCmd())
 
 	if err := c.Execute(); err != nil {
-		log.Fatal(err)
+		logger.Fatal(err.Error())
 	}
 }
