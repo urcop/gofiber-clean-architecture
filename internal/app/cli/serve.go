@@ -2,12 +2,11 @@ package cli
 
 import (
 	"context"
-	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"github.com/spf13/cobra"
 	application "github.com/urcop/go-fiber-template/internal/app"
 	"github.com/urcop/go-fiber-template/internal/config"
-	"log"
+	"github.com/urcop/go-fiber-template/pkg/logger"
 	"os/signal"
 	"syscall"
 	"time"
@@ -19,7 +18,7 @@ func NewServeCmd() *cobra.Command {
 		Aliases: []string{"s"},
 		Short:   "Start server",
 		Run: func(cmd *cobra.Command, args []string) {
-			log.Printf("Server started")
+			logger.Info("Server started")
 
 			ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 			defer stop()
@@ -31,21 +30,21 @@ func NewServeCmd() *cobra.Command {
 
 			go func() {
 				if err := app.Listen(":" + cfg.HttpServer.Port); err != nil {
-					fmt.Printf("Failed to start server %v\n", err)
+					logger.Fatal("Failed to start server: ", err)
 				}
 			}()
 
 			select {
 			case <-ctx.Done():
 				if err := app.Shutdown(); err != nil {
-					fmt.Printf("Failed to stop server %v\n", err)
+					logger.Fatal("Failed to stop server: ", err)
 				}
 			}
 
-			log.Println("Stopping server")
+			logger.Info("Stopping server")
 			time.Sleep(time.Second * cliCmdExecFinishDelaySeconds)
 
-			log.Println("Server stopped")
+			logger.Info("Server stopped")
 		},
 	}
 }
