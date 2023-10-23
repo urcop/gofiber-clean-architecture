@@ -1,0 +1,35 @@
+definitions:
+  github.com_urcop_go-fiber-template_internal_web_status.Response:
+    properties:
+      code:
+        type: integer
+      data:
+        type: string
+      message:
+        type: string
+    type: object
+  internal_web_status.Response:
+    properties:
+      code:
+        type: integer
+      data:
+        type: string
+      message:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /docs/v1/status/:
+    get:
+      description: Get the status of the API
+      operationId: Status
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/internal_web_status.Response'
+      summary: Get the status
+swagger: "2.0"

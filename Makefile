@@ -16,3 +16,6 @@ proto:
 install-tools:
 	go get -u github.com/swaggo/swag/cmd/swag
 	go install github.com/golang/mock/mockgen@v1.6.0
+
+swagger:
+	swag init --parseDependency -g cmd/app/main.go --output=./api

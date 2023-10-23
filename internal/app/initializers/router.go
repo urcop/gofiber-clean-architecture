@@ -4,6 +4,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/urcop/go-fiber-template/internal/web"
 	"github.com/urcop/go-fiber-template/internal/web/status"
+	"github.com/urcop/go-fiber-template/internal/web/swagger"
 )
 
 func SetupRoutes(app *fiber.App) {
@@ -17,5 +18,6 @@ func SetupRoutes(app *fiber.App) {
 func buildRouters() []web.Controller {
 	return []web.Controller{
 		status.NewStatusController(),
+		swagger.NewSwaggerController(),
 	}
 }
