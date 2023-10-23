@@ -1,0 +1,7 @@
+# Usecase layer
+
+## example
+
+```go
+
+```
