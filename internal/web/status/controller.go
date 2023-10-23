@@ -17,7 +17,7 @@ func NewStatusController() *Controller {
 }
 
 func (ctrl *Controller) DefineRouter(app *fiber.App) {
-	app.Get("/docs/v1/status/", ctrl.Status)
+	app.Get("/api/v1/status/", ctrl.Status)
 }
 
 // Status

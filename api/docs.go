@@ -28,7 +28,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/status.Response"
+                            "$ref": "#/definitions/internal_web_status.Response"
                         }
                     }
                 }
@@ -36,7 +36,21 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "status.Response": {
+        "github.com_urcop_go-fiber-template_internal_web_status.Response": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "internal_web_status.Response": {
             "type": "object",
             "properties": {
                 "code": {
