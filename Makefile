@@ -19,3 +19,6 @@ install-tools:
 
 swagger:
 	swag init --parseDependency -g cmd/app/main.go --output=./api
+
+docker-build:
+	docker compose up -d --build
