@@ -12,10 +12,16 @@ http://localhost:8000/swagger/index.html
 ## Architecture
 
 ### /api
-This is the directory for describing swagger files, to automatically generate a swagger use the command `make swagger`
+This is the directory for describing swagger files, to automatically generate a swagger use the command 
+```sh 
+make swagger
+```
 
 ### /build
-The directory where the binary file of your project is located, to build the project use the command `make build`
+The directory where the binary file of your project is located, to build the project use the command 
+```sh
+make build
+```
 
 ### /cmd
 The directory where the entry points to your applications are located
