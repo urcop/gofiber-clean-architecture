@@ -26,7 +26,7 @@ func (ctrl *Controller) DefineRouter(app *fiber.App) {
 // @ID Status
 // @Produce json
 // @Success 200 {object} Response
-// @Router /docs/v1/status/ [get]
+// @Router /api/v1/status/ [get]
 func (ctrl *Controller) Status(ctx *fiber.Ctx) error {
 	return ctx.Status(fiber.StatusOK).JSON(Response{
 		Code:    http.StatusOK,
