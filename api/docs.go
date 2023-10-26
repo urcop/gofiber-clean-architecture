@@ -16,7 +16,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/docs/v1/status/": {
+        "/api/v1/status/": {
             "get": {
                 "description": "Get the status of the API",
                 "produces": [
