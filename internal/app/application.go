@@ -2,6 +2,7 @@ package app
 
 import (
 	"github.com/gofiber/fiber/v2"
+	"github.com/urcop/go-fiber-template/internal/app/dependencies"
 	"github.com/urcop/go-fiber-template/internal/app/initializers"
 	"github.com/urcop/go-fiber-template/internal/repository"
 )
@@ -13,4 +14,7 @@ func InitApplication(app *fiber.App) {
 	initializers.SetupRoutes(app)
 
 	repository.NewExampleRepository()
+
+	_ = dependencies.Container{}
+
 }
