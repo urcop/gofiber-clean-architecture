@@ -5,7 +5,7 @@ run:
 
 .PHONY: build
 build:
-	go build ${GOARGS} -tags "${GOTAGS}" -o ${BUILD_DIR}/app ./cmd/app
+	CGO_ENABLED=0 GOOS=linux go build -o build/app ./cmd/app
 
 swagger:
 	swag init --parseDependency -g cmd/app/main.go --output=./api

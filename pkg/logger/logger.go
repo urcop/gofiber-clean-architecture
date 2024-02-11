@@ -1,17 +1,17 @@
 package logger
 
 import (
-	"github.com/gobuffalo/envy"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
+	"os"
 )
 
 var logger *zap.Logger
 var sugaredLogger *zap.SugaredLogger
 
 func init() {
-	namespace := envy.Get("LOG_NAMESPACE", "gobase-svc")
-	buildMode := envy.Get("LOG_MODE", "development")
+	namespace := os.Getenv("LOG_NAMESPACE")
+	buildMode := os.Getenv("LOG_MODE")
 
 	var config zap.Config
 	if buildMode == "production" {

@@ -7,7 +7,9 @@ services:
       dockerfile: Dockerfile
     restart: always
     container_name: service
-    env_file:
-      - .env
+    environment:
+      - CONFIG_PATH=./config/local.yaml # prod/dev.yaml
+      - LOG_NAMESPACE=service
+      - LOG_NAMESPACE=production # development
     ports:
       - "8080:${HTTP_PORT}"

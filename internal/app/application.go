@@ -10,11 +10,9 @@ import (
 type Application struct{}
 
 func InitApplication(app *fiber.App) {
-	initializers.InitEnv()
-	initializers.SetupRoutes(app)
-
 	repository.NewExampleRepository()
 
-	_ = dependencies.Container{}
+	container := &dependencies.Container{}
 
+	initializers.SetupRoutes(app, container)
 }

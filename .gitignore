@@ -1,2 +1,6 @@
 .env
 .idea
+.gitconfig
+/.DS_Store/
+config/prod.yaml
+config/dev.yaml
